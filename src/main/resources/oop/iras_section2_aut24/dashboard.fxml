@@ -13,7 +13,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="468.0" layoutY="14.0" mnemonicParsing="false" text="Log Out" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <Button layoutX="468.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogOutButtonClick" text="Log Out" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
