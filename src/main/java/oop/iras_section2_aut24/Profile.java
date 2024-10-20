@@ -8,10 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
-public class Dashboard {
+public class Profile {
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -25,15 +24,14 @@ public class Dashboard {
     }
 
     @FXML
-    protected void goToProfile(ActionEvent event) throws IOException {
+    protected void onBackButtonClick(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
     }
-
 }
