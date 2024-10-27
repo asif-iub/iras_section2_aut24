@@ -36,4 +36,16 @@ public class Dashboard {
         stage.setScene(scene);
     }
 
+    @FXML
+    protected void goToUserManagement(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-management.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+    }
+
 }
