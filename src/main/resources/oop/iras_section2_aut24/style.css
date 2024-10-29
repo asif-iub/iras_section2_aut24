@@ -1,0 +1,5 @@
+.choice-box .label,
+ .table-column .label,
+ .table-view .table-cell {
+  -fx-font-size: 18px;
+}

@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -30,20 +27,38 @@ public class UserManagementController {
     private TableColumn<User, String> tcUsername;
 
     @FXML
+    private TableColumn<User, String> tcType;
+
+    @FXML
     private TextField usernameInput;
+
+    @FXML
+    private ChoiceBox<String> userTypeInput;
 
     @FXML
     protected void initialize() {
         tcUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         tcPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+        tcType.setCellValueFactory(new PropertyValueFactory<>("userType"));
+
+        userTypeInput.getItems().addAll(User.USER_TYPES);
+        userTypeInput.setValue("User");
+    }
+
+    @FXML
+    void onDeleteUserButtonClick(ActionEvent event) {
+        int i = tableView.getSelectionModel().getSelectedIndex();
+        if (i >= 0)
+            tableView.getItems().remove(i);
     }
 
     @FXML
     void onAddUserButtonClick(ActionEvent event) {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
+        String userType = userTypeInput.getValue();
 
-        if (username.isBlank() || password.isBlank()) {
+        if (username.isBlank() || password.isBlank() || userType.isBlank()) {
 //            label.setText("Please enter a valid username and password.")
             return;
         }
@@ -54,7 +69,7 @@ public class UserManagementController {
             }
         }
 
-        User newUser = new User(username, password);
+        User newUser = new User(username, password, userType);
 
         tableView.getItems().add(newUser);
     }
