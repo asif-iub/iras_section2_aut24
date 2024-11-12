@@ -30,6 +30,7 @@ public class UserManager {
     }
 
     public static void setLoggedInUser(User loggedInUser) {
-        UserManager.loggedInUser = loggedInUser;
+//        if (loggedInUser.isActive())
+            UserManager.loggedInUser = loggedInUser;
     }
 }

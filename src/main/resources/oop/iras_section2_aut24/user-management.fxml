@@ -58,5 +58,10 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Button layoutX="288.0" layoutY="335.0" onAction="#onEditUserButtonClick" text="Edit User">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package oop.iras_section2_aut24;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,8 +15,14 @@ public class SceneManager {
     }
 
     public static void switchScene(String fxmlFileName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource(fxmlFileName)
+        );
         Parent root = fxmlLoader.load();
+//
+//        Parent root1 = FXMLLoader.load(
+//                HelloApplication.class.getResource("hello-view.fxml")
+//        );
 
         Scene scene = new Scene(root);
 
@@ -32,7 +37,7 @@ public class SceneManager {
         stage.setScene(scene);
     }
 
-    public static void logOut()throws IOException{
+    public static void logOut() throws IOException {
         switchScene("hello-view.fxml");
     }
 }

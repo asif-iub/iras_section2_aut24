@@ -97,4 +97,24 @@ public class UserManagementController {
         SceneManager.switchScene("dashboard.fxml");
     }
 
+    @FXML
+    public void onEditUserButtonClick(ActionEvent actionEvent) throws IOException {
+        User u = tableView.getSelectionModel().getSelectedItem();
+        if (u == null) {
+            System.out.println("No user is selected!");
+            return;
+        }
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit-user.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        EditUserController controller = loader.getController();
+        controller.setUser(u);
+
+//        SceneManager.switchScene("edit-user.fxml");
+    }
 }
