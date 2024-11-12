@@ -33,6 +33,9 @@
           <TableColumn fx:id="tcPassword" minWidth="0.0" prefWidth="138.0" text="Password" />
             <TableColumn fx:id="tcType" minWidth="0.0" prefWidth="105.0" text="Type" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <TextField fx:id="usernameInput" layoutX="14.0" layoutY="94.0" prefHeight="51.0" prefWidth="200.0" promptText="Username" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="94.0">
          <font>
@@ -50,7 +53,7 @@
          </font>
       </Button>
       <ChoiceBox fx:id="userTypeInput" layoutX="14.0" layoutY="232.0" prefHeight="51.0" prefWidth="200.0" />
-      <Button layoutX="431.0" layoutY="331.0" onAction="#onDeleteUserButtonClick" text="Delete User">
+      <Button layoutX="431.0" layoutY="331.0" onAction="#onDeleteUserButtonClick" text="Delete User" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>

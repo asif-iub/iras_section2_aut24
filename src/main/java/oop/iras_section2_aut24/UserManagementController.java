@@ -11,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserManagementController {
 
@@ -35,6 +37,8 @@ public class UserManagementController {
     @FXML
     private ChoiceBox<String> userTypeInput;
 
+    private List<User> userList = new ArrayList<>();
+
     @FXML
     protected void initialize() {
         tcUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -43,13 +47,19 @@ public class UserManagementController {
 
         userTypeInput.getItems().addAll(User.USER_TYPES);
         userTypeInput.setValue("User");
+
+        UserManager userManager = new UserManager();
+        userList = userManager.getUsers();
+        tableView.getItems().addAll(userList);
     }
 
     @FXML
     void onDeleteUserButtonClick(ActionEvent event) {
-        int i = tableView.getSelectionModel().getSelectedIndex();
-        if (i >= 0)
-            tableView.getItems().remove(i);
+        User selectedUser = tableView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            tableView.getItems().remove(selectedUser);
+            userList.remove(selectedUser);
+        }
     }
 
     @FXML
@@ -72,6 +82,7 @@ public class UserManagementController {
         User newUser = new User(username, password, userType);
 
         tableView.getItems().add(newUser);
+        userList.add(newUser);
     }
 
     @FXML
