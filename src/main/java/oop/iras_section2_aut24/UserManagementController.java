@@ -37,8 +37,6 @@ public class UserManagementController {
     @FXML
     private ChoiceBox<String> userTypeInput;
 
-    private List<User> userList = new ArrayList<>();
-
     @FXML
     protected void initialize() {
         tcUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -48,8 +46,7 @@ public class UserManagementController {
         userTypeInput.getItems().addAll(User.USER_TYPES);
         userTypeInput.setValue("User");
 
-        UserManager userManager = new UserManager();
-        userList = userManager.getUsers();
+        List<User> userList = UserManager.getUsers();
         tableView.getItems().addAll(userList);
     }
 
@@ -57,8 +54,13 @@ public class UserManagementController {
     void onDeleteUserButtonClick(ActionEvent event) {
         User selectedUser = tableView.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
+            if (selectedUser == UserManager.getLoggedInUser()){
+                System.out.println("User cannot delete itself!");
+                return;
+            }
+
             tableView.getItems().remove(selectedUser);
-            userList.remove(selectedUser);
+            UserManager.deleteUser(selectedUser);
         }
     }
 
@@ -82,31 +84,17 @@ public class UserManagementController {
         User newUser = new User(username, password, userType);
 
         tableView.getItems().add(newUser);
-        userList.add(newUser);
+        UserManager.addUser(newUser);
     }
 
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("hello-view.fxml");
     }
 
     @FXML
     protected void onBackButtonClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("dashboard.fxml");
     }
 
 }

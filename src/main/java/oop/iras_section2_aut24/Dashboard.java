@@ -14,38 +14,17 @@ import java.io.IOException;
 public class Dashboard {
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("hello-view.fxml");
     }
 
     @FXML
     protected void goToProfile(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("profile.fxml");
     }
 
     @FXML
     protected void goToUserManagement(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-management.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("user-management.fxml");
     }
 
 }

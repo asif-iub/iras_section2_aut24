@@ -6,32 +6,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Profile {
+
+    @FXML
+    private TextField usernameTextField;
+
+    @FXML
+    void initialize() {
+        usernameTextField.setText(UserManager.getLoggedInUser().getUsername());
+    }
+
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("hello-view.fxml");
     }
 
     @FXML
     protected void onBackButtonClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
+        SceneManager.switchScene("dashboard.fxml");
     }
 }

@@ -30,21 +30,23 @@ public class HelloController {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
 
-        UserManager userManager = new UserManager();
-        List<User> userList = userManager.getUsers();
+        List<User> userList = UserManager.getUsers();
 
         for (User u : userList) {
             if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                 msgLabel.setText("Log in successful!");
+                UserManager.setLoggedInUser(u);
 
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                SceneManager.switchScene("dashboard.fxml");
 
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-                Parent root = fxmlLoader.load();
-
-                Scene scene = new Scene(root);
-
-                stage.setScene(scene);
+//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//
+//                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
+//                Parent root = fxmlLoader.load();
+//
+//                Scene scene = new Scene(root);
+//
+//                stage.setScene(scene);
                 return;
             }
         }
