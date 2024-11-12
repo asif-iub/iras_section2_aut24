@@ -39,14 +39,6 @@ public class HelloController {
 
                 SceneManager.switchScene("dashboard.fxml");
 
-//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-//                Parent root = fxmlLoader.load();
-//
-//                Scene scene = new Scene(root);
-//
-//                stage.setScene(scene);
                 return;
             }
         }

@@ -89,7 +89,7 @@ public class UserManagementController {
 
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
-        SceneManager.switchScene("hello-view.fxml");
+        SceneManager.logOut();
     }
 
     @FXML

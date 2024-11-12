@@ -31,4 +31,8 @@ public class SceneManager {
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
+
+    public static void logOut()throws IOException{
+        switchScene("hello-view.fxml");
+    }
 }
