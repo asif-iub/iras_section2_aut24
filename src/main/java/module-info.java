@@ -6,4 +6,6 @@ module oop.iras_section2_aut24 {
 
     opens oop.iras_section2_aut24 to javafx.fxml;
     exports oop.iras_section2_aut24;
+    exports oop.iras_section2_aut24.nazmul;
+    opens oop.iras_section2_aut24.nazmul to javafx.fxml;
 }

@@ -27,4 +27,9 @@ public class Dashboard {
         SceneManager.switchScene("user-management.fxml");
     }
 
+    @FXML
+    protected void goToCharts(ActionEvent event) throws IOException {
+        SceneManager.switchScene("charts.fxml");
+    }
+
 }
