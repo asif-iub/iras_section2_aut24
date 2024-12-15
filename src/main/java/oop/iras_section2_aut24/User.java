@@ -1,6 +1,8 @@
 package oop.iras_section2_aut24;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     public static String[] USER_TYPES = {"Admin", "User", "Guest"};
 
     private String username, password;
@@ -34,5 +36,11 @@ public class User {
         this.username = username;
         this.password = password;
         this.userType = userType;
+    }
+
+    public User() {
+        this.username = "guest";
+        this.password = "1234";
+        this.userType = USER_TYPES[2];
     }
 }

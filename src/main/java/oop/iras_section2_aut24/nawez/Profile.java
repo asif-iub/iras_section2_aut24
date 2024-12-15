@@ -1,13 +1,10 @@
-package oop.iras_section2_aut24;
+package oop.iras_section2_aut24.nawez;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import oop.iras_section2_aut24.SceneManager;
+import oop.iras_section2_aut24.UserManager;
 
 import java.io.IOException;
 
