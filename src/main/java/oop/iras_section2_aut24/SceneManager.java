@@ -22,10 +22,6 @@ public class SceneManager {
                 HelloApplication.class.getResource(fxmlFileName)
         );
         Parent root = fxmlLoader.load();
-//
-//        Parent root1 = FXMLLoader.load(
-//                HelloApplication.class.getResource("hello-view.fxml")
-//        );
 
         Scene scene = new Scene(root);
 
