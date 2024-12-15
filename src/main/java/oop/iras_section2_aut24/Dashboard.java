@@ -19,12 +19,12 @@ public class Dashboard {
 
     @FXML
     protected void goToProfile(ActionEvent event) throws IOException {
-        SceneManager.switchScene("profile.fxml");
+        SceneManager.switchScene("nawez/profile.fxml");
     }
 
     @FXML
     protected void goToUserManagement(ActionEvent event) throws IOException {
-        SceneManager.switchScene("user-management.fxml");
+        SceneManager.switchScene("nazmul/user-management.fxml");
     }
 
     @FXML
